@@ -33,6 +33,7 @@ public class Main {
             System.out.println("5. View all parcels");
             System.out.println("6. Cancel a parcel");
             System.out.println("7. View all agents");
+            System.out.println("8. Search parcels by sender or receiver");
             System.out.println("0. Exit");
             System.out.print("Enter choice: ");
 
@@ -171,6 +172,26 @@ public class Main {
                                 + ", Name: " + a.getName()
                                 + ", Phone: " + a.getPhone()
                                 + ", Available: " + a.isAvailable());
+                    }
+                    break;
+
+                // Search parcels by sender or receiver
+                case 8:
+                    System.out.print("Enter sender or receiver name to search: ");
+                    String query = scanner.nextLine().trim();
+                    Collection<Parcel> matchingParcels = parcelService.searchParcels(query);
+                    if (matchingParcels.isEmpty()) {
+                        System.out.println("No parcels found matching: " + query);
+                    } else {
+                        System.out.println("\nMatching Parcels (" + matchingParcels.size() + "):");
+                        for (Parcel p : matchingParcels) {
+                            System.out.println("ID: " + p.getParcelId()
+                                    + ", Sender: " + p.getSenderName()
+                                    + ", Receiver: " + p.getReceiverName()
+                                    + ", Weight: " + p.getWeight()
+                                    + ", Status: " + p.getStatus()
+                                    + ", Assigned Agent: " + p.getAssignedAgentId());
+                        }
                     }
                     break;
 

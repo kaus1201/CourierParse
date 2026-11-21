@@ -10,6 +10,7 @@ A console-based Java application for managing parcel booking, dynamic delivery a
 - **Cancellation**: Only allowed in the `BOOKED` stage, releasing the assigned agent and removing the parcel from active records.
 - **Tracking History**: Maintains an audit log of status changes with formatted timestamps.
 - **Sorted Parcel Records**: Stores parcels using a `TreeMap`, keeping them sorted by parcel ID.
+- **Parcel Search**: Search and filter parcels by sender or receiver name.
 
 ## Status Lifecycle
 
@@ -69,5 +70,6 @@ java -cp bin app.Main
 5. View all parcels
 6. Cancel a parcel
 7. View all agents
+8. Search parcels by sender or receiver
 0. Exit
 ```
